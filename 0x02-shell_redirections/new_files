@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Script for task 11: 11-directories
+echo -e '#!/bin/bash\nfind . -mindepth 1 -type d -not -name ".*" | grep -c "^./[^\.]"' > 11-directories
+
+# Script for task 12: 12-newest_files
+echo -e '#!/bin/bash\nls -lt | grep -v "^total" | head -n 10 | cut -d " " -f 9' > 12-newest_files
+
+# Script for task 13: 13-unique
+echo -e '#!/bin/bash\nsort | uniq -c | grep -w "1" | tr -s " " | cut -d " " -f 3' > 13-unique
+
+# Script for task 14: 14-findthatword
+echo -e '#!/bin/bash\ngrep "root" /etc/passwd' > 14-findthatword
+
+# Script for task 15: 15-countthatword
+echo -e '#!/bin/bash\ngrep -c "bin" /etc/passwd' > 15-countthatword
+
+# Script for task 16: 16-whatsnext
+echo -e '#!/bin/bash\ngrep -A 3 "root" /etc/passwd | grep -v "bin" | cut -d ":" -f 1' > 16-whatsnext
+
+# Script for task 17: 17-hidethisword
+echo -e '#!/bin/bash\ngrep -v "bin" /etc/passwd | cut -d ":" -f 1' > 17-hidethisword
+
+# Script for task 18: 18-letteronly
+echo -e '#!/bin/bash\ngrep "^[a-zA-Z]" /etc/ssh/sshd_config' > 18-letteronly
+
+# Script for task 19: 19-AZ
+echo -e '#!/bin/bash\ntr "Ac" "Ze"' > 19-AZ
+
+# Script for task 20: 20-hiago
+echo -e '#!/bin/bash\ntr -d "cC"' > 20-hiago
+
+# Script for task 21: 21-reverse
+echo -e '#!/bin/bash\nrev' > 21-reverse
+
+# Script for task 22: 22-users_and_homes
+echo -e '#!/bin/bash\ncat /etc/passwd | grep -v "^#" | sort | cut -d ":" -f 1,6' > 22-users_and_homes
+
+# Script for task 100: 100-empty_casks
+echo -e '#!/bin/bash\nfind . -type f -empty -exec basename {} \;' > 100-empty_casks
+
+# Script for task 101: 101-gifs
+echo -e '#!/bin/bash\nfind . -type f -name "*.gif" -exec basename {} .gif \; | sort -f' > 101-gifs
+
+# Script for task 102: 102-acrostic
+echo -e '#!/bin/bash\nwhile IFS= read -r line; do echo -n "${line:0:1}"; done; echo' > 102-acrostic
+
+# Script for task 103: 103-the_biggest_fan
+echo -e '#!/bin/bash\ncut -f 1 | sort | uniq -c | sort -nr | head -n 11 | while read -r count host; do echo "$host"; done' > 103-the_biggest_fan
+
+# Make all scripts executable
+chmod +x 11-directories 12-newest_files 13-unique 14-findthatword 15-countthatword 16-whatsnext 17-hidethisword 18-letteronly 19-AZ 20-hiago 21-reverse 22-users_and_homes 100-empty_casks 101-gifs 102-acrostic 103-the_biggest_fan
+
+# Inform about script creation
+echo "All scripts created successfully."
+
